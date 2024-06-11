@@ -29,7 +29,7 @@ while (true)
         GetToSquareRoot(firstNumber, secondNumber);
         GetToPow(firstNumber, secondNumber);
     }
-    catch (Exception e)
+    catch (Exception exception)
     {
         GetExceptionMessage();
     }
