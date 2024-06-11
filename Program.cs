@@ -1,7 +1,6 @@
 ﻿
 using System;
 
-
 Console.WriteLine("Welcome to Calculator Application");
 
 while (true)
@@ -23,19 +22,19 @@ while (true)
 
         PrintText("\nCalculation process completed.....\n");
 
-        AddingMethod(firstNumber, secondNumber);
-        SubtractingMethod(firstNumber, secondNumber);
-        MultipleyingMethod(firstNumber, secondNumber);
-        DividingMethod(firstNumber, secondNumber);
-        SquareRootMethod(firstNumber, secondNumber);
-        PowMethod(firstNumber, secondNumber);
+        GetToAdd(firstNumber, secondNumber);
+        GetToSubtract(firstNumber, secondNumber);
+        GetToMultiple(firstNumber, secondNumber);
+        GetToDivided(firstNumber, secondNumber);
+        GetToSquareRoot(firstNumber, secondNumber);
+        GetToPow(firstNumber, secondNumber);
     }
     catch (Exception e)
     {
         GetExceptionMessage();
     }
 
-    Console.WriteLine("Do you want to use the program again? 👉 y/n 👈");
+    Console.WriteLine("Do you want to use the program again? 👉 y/n or yes/no 👈");
     string answer = Console.ReadLine();
 
     if (answer.ToLower() != "y")
@@ -48,33 +47,33 @@ while (true)
     }
 }
 
-static void AddingMethod(decimal firstNumber, decimal secondNumber)
+static void GetToAdd(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"When added : {firstNumber + secondNumber}");
 }
 
-static void SubtractingMethod(decimal firstNumber, decimal secondNumber)
+static void GetToSubtract(decimal firstNumber, decimal secondNumber)
 {    
     Console.WriteLine($"When subtracted : {firstNumber - secondNumber}");
 }
 
-static void MultipleyingMethod(decimal firstNumber, decimal secondNumber)
+static void GetToMultiple(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"When multiplied : {firstNumber * secondNumber}");
 }
 
-static void DividingMethod(decimal firstNumber, decimal secondNumber)
+static void GetToDivided(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"When divided : {firstNumber / secondNumber}");
 }
 
-static void SquareRootMethod(decimal firstNumber, decimal secondNumber)
+static void GetToSquareRoot(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"When rooting: The square root of {firstNumber} is {Math.Sqrt((double)firstNumber)}");
     Console.WriteLine($"When rooting: The square root of {secondNumber} is {Math.Sqrt((double)secondNumber)}");
 }
 
-static void PowMethod(decimal firstNumber, decimal secondNumber)
+static void GetToPow(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"The square and cube of the '{firstNumber}': Square: {Math.Pow((double)firstNumber, 2)} , Cube: {Math.Pow((double)firstNumber, 3)}");
     Console.WriteLine($"The square and cube of the '{secondNumber}': Square: {Math.Pow((double)secondNumber, 2)}, Cube: {Math.Pow((double)secondNumber, 3)}");
