@@ -34,16 +34,17 @@ while (true)
         GetExceptionMessage();
     }
 
-    Console.WriteLine("Do you want to use the program again? 👉 y/n or yes/no 👈");
+    Console.WriteLine("Do you want to use the program again? 👉 y/n 👈");
     string answer = Console.ReadLine();
 
     if (answer.ToLower() != "y")
     {
+        Console.WriteLine("Thank you for using the program 🤝");
         break;
     }
     else
     {
-        Console.WriteLine("Thank you for using the program 🤝");
+        Console.WriteLine("Let's continue");
     }
 }
 
