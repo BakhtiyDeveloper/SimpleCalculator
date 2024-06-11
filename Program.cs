@@ -1,23 +1,27 @@
 ﻿
 using System;
 
+
 Console.WriteLine("Welcome to Calculator Application");
 
 while (true)
 {
     try
     {
-        Console.Write("Enter first number: ");
-        int firstNumber = Convert.ToInt32(Console.ReadLine());
+        string userValueOne;
+        string userValueTwo;
+        decimal firstNumber;
+        decimal secondNumber;
+        
+        userValueOne = GetUserInputByMessage("Enter first number:  ");
         Console.WriteLine("Converting.....");
+        firstNumber = Convert.ToDecimal(userValueOne);
 
-
-        Console.Write("Enter second number: ");
-        int secondNumber = Convert.ToInt32(Console.ReadLine());
+        userValueTwo = GetUserInputByMessage("Enter second number:  ");
         Console.WriteLine("Converting.....");
-        Console.WriteLine("");
-        Console.WriteLine("Calculation process completed.....");
-        Console.WriteLine("");
+        secondNumber = Convert.ToDecimal(userValueTwo);
+
+        PrintText("\nCalculation process completed.....\n");
 
         AddingMethod(firstNumber, secondNumber);
         SubtractingMethod(firstNumber, secondNumber);
@@ -28,9 +32,7 @@ while (true)
     }
     catch (Exception e)
     {
-        Console.WriteLine("the value you entered cannot be converted to a number !");
-        Console.WriteLine("Please enter a number !");
-
+        GetExceptionMessage();
     }
 
     Console.WriteLine("Do you want to use the program again? 👉 y/n 👈");
@@ -46,42 +48,54 @@ while (true)
     }
 }
 
-static void AddingMethod(int firstNumber, int secondNumber)
+static void AddingMethod(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"When added : {firstNumber + secondNumber}");
 }
 
-static void SubtractingMethod(int firstNumber, int secondNumber)
-{
+static void SubtractingMethod(decimal firstNumber, decimal secondNumber)
+{    
     Console.WriteLine($"When subtracted : {firstNumber - secondNumber}");
 }
 
-static void MultipleyingMethod(int firstNumber, int secondNumber)
+static void MultipleyingMethod(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"When multiplied : {firstNumber * secondNumber}");
 }
 
-static void DividingMethod(int firstNumber, int secondNumber)
+static void DividingMethod(decimal firstNumber, decimal secondNumber)
 {
     Console.WriteLine($"When divided : {firstNumber / secondNumber}");
 }
 
-static void SquareRootMethod(int firstNumber, int secondNumber)
+static void SquareRootMethod(decimal firstNumber, decimal secondNumber)
 {
-    Console.WriteLine($"When rooting: The square root of {firstNumber} is {Math.Sqrt(firstNumber)}");
-    Console.WriteLine($"When rooting: The square root of {secondNumber} is {Math.Sqrt(secondNumber)}");
+    Console.WriteLine($"When rooting: The square root of {firstNumber} is {Math.Sqrt((double)firstNumber)}");
+    Console.WriteLine($"When rooting: The square root of {secondNumber} is {Math.Sqrt((double)secondNumber)}");
 }
 
-static void PowMethod(int firstNumber, int secondNumber)
+static void PowMethod(decimal firstNumber, decimal secondNumber)
 {
-    Console.WriteLine($"The square and cube of the '{firstNumber}': {Math.Pow(firstNumber, 2)} , {Math.Pow(firstNumber, 3)}");
-    Console.WriteLine($"The square and cube of the '{secondNumber}': {Math.Pow(secondNumber, 2)} , {Math.Pow(secondNumber, 3)}");
+    Console.WriteLine($"The square and cube of the '{firstNumber}': Square: {Math.Pow((double)firstNumber, 2)} , Cube: {Math.Pow((double)firstNumber, 3)}");
+    Console.WriteLine($"The square and cube of the '{secondNumber}': Square: {Math.Pow((double)secondNumber, 2)}, Cube: {Math.Pow((double)secondNumber, 3)}");
 }
 
+static string GetUserInputByMessage(string message)
+{
+    Console.Write(message);
+    return Console.ReadLine();
+}
 
+static void PrintText(string message)
+{
+    Console.WriteLine(message);
+}
 
-
-
+static void GetExceptionMessage()
+{
+    Console.WriteLine("the value you entered cannot be converted to a number !");
+    Console.WriteLine("Please enter a number !");
+}
 
 
 
